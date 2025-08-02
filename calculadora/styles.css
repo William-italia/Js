@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #2378a8;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(130deg, rgba(35, 120, 168, 1) 0%, rgba(255, 74, 74, 1) 51%, rgba(230, 0, 0, 1) 100%) no-repeat;
+}
+
+.calculadora {
+    flex-direction: column;
+    background-color: rgb(51, 51, 51);
+    border-radius: 1rem;
+    width: 300px;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.display {
+    height: 50px;
+    width: auto;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 1rem;
+    margin-top: .4rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+}
+
+.btn {
+    font-weight: bold;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    display: block;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    margin: 0 0 .4rem;
+    transition: opacity .1s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.btn:hover {
+    opacity: .4;
+}
+
+.grid-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 0rem 1rem;
+}
+
+div.igual {
+    grid-column: span 2;
+}
+
+div.display2 {
+    background-image: url(./e14392b3bb9f745025a5cf6a9abe11be.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* ou 'contain' dependendo do que quiser */
+    grid-column: span 2;
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
