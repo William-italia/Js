@@ -6,6 +6,7 @@ const input2 = document.querySelector('.num2');
 let currentNumber = '';
 let previousNumber = '';
 let operator = '';
+let equal = false;
 
 buttons.addEventListener('click', (el) => {
 
@@ -16,25 +17,31 @@ buttons.addEventListener('click', (el) => {
 
 });
 
-
 function input(value) {
 
     if (value.dataset.action) {
         actions(value);
     }
 
-    if (value.dataset.operator) {
+   if (equal === true && !isNaN(value.textContent)) {
+    equal = false;
+    currentNumber = '';
+    operator = '';
+    previousNumber = '';
+    resetDisplay();
+    }
 
+    if (value.dataset.operator) {
+        equal = false;
         inputOperator(value.textContent);
-        displayNumbers(currentNumber);
+        displayNumbers(formatNumber(currentNumber));
 
     } else if(!isNaN(value.textContent) || value.textContent === '.' && !currentNumber.includes('.') && currentNumber.length < 12) {
         currentNumber += value.textContent;
-        displayNumbers(currentNumber);
+        displayNumbers(formatNumber(currentNumber));
     }
     
 }
-
 
 function actions(action) {
 
@@ -49,15 +56,13 @@ function actions(action) {
 
     if (action.dataset.action === 'equal') {
         calculate();
-        // currentNumber = '';
     }
 
 }
 
-
 function displayNumbers(curr) {
     if (previousNumber !== '') {
-        input1.textContent = `${previousNumber} ${operator}`;
+        input1.textContent = `${formatNumber(previousNumber)} ${operator}`;
         input2.textContent = curr;
     } else {
         input1.textContent = curr;
@@ -72,25 +77,25 @@ function calculate() {
 
     switch (operator) {
         case '+':
-        conta = `${num1} + ${num2}`;
+        conta = `${formatNumber(num1)} + ${formatNumber(num2)}`;
         currentNumber = (num1 + num2).toString();
         displayEqual(conta, currentNumber);
         break;
 
     case '-':
-        conta = `${num1} − ${num2}`;
+        conta = `${formatNumber(num1)} − ${formatNumber(num2)}`;
         currentNumber = (num1 - num2).toString();
         displayEqual(conta, currentNumber);
         break;
 
     case 'x':
-        conta = `${num1} × ${num2}`; 
+        conta = `${formatNumber(num1)} × ${formatNumber(num2)}`; 
         currentNumber = (num1 * num2).toString();
         displayEqual(conta, currentNumber);
         break;
 
     case '÷':
-        conta = `${num1} ÷ ${num2}`; 
+        conta = `${formatNumber(num1)} ÷ ${formatNumber(num2)}`; 
         currentNumber = num2 !== 0 ? (num1 / num2).toString() : 'Error';
         displayEqual(conta, currentNumber);
         break;
@@ -99,34 +104,37 @@ function calculate() {
 
     operator = '';
     previousNumber = '';
-}
+    equal = true;
 
-function displayNumbers(curr) {
-    if (previousNumber !== '') {
-        input1.textContent = `${previousNumber} ${operator}`;
-        input2.textContent = curr;
-    } else {
-        input1.textContent = curr;
-    }
 }
 
 function displayEqual(prev, equal) {
     input1.textContent = prev;
-    input2.textContent = equal;
+    input2.textContent = formatNumber(equal);
 }
 
+function resetDisplay() {
+    input1.textContent = '0';
+    input2.textContent = '';
+}
 
 function inputOperator(op) {
-    if (currentNumber === '') return;
-    if (previousNumber !== '') {
-        alert('Meu penis é muito grande!');
-    }
-
+        if (currentNumber === '') {
+            if (previousNumber !== '') {
+            operator = op;
+        }
+        return;
+    };
+  
     operator = op;
     previousNumber = currentNumber;
     currentNumber = '';
 }
 
+function formatNumber(curr) {
+    if (curr === '' || curr === 'error') return curr;
+    let num = parseFloat(curr);
+    if (isNaN(num)) return curr;
 
-
-
+    return num.toLocaleString('en-US');
+}
