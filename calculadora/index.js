@@ -1,3 +1,4 @@
+// versao 2.0.0
 const buttons = document.querySelector('.grid-buttons');
 const display = document.querySelector('.display');
 const input1 = document.querySelector('.num1');
