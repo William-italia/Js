@@ -13,7 +13,6 @@ buttons.addEventListener('click', (el) => {
     let value = el.target;
 
     input(value);
-    console.log(previousNumber, currentNumber, operator);
 
 });
 
