@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Instagram",
+    "url": "https://instagram.com/seuusuario"
+  },
+  {
+    "name": "Facebook",
+    "url": "https://facebook.com/seuusuario"
+  },
+  {
+    "name": "Twitter",
+    "url": "https://twitter.com/seuusuario"
+  },
+  {
+    "name": "WhatsApp",
+    "url": "https://wa.me/5511999999999"
+  },
+  {
+    "name": "E-mail",
+    "url": "mailto:seuemail@email.com"
+  }
+]

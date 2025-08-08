@@ -10,29 +10,42 @@
     <!-- calc -->
     <div class="calculadora">
         <!-- calc display -->
-        <div class="display" ><span id="digitos"></span></div>
+        <div class="display" >
+            <div class="display-flex">
+                <span class="num1"></span>
+                <span id="result" class="num2"></span>
+            </div>
+        </div>
         <!-- calc buttons -->
         <div class="grid-buttons">
             <!-- button -->
-            <div class="btn">7</div>
-            <div class="btn">8</div>
-            <div class="btn">9</div>
-            <div class="btn">÷</div>
-            <div class="btn">4</div>
-            <div class="btn">5</div>
-            <div class="btn">6</div>
-            <div class="btn">x</div>
-            <div class="btn">1</div>
-            <div class="btn">2</div>
-            <div class="btn">3</div>
-            <div class="btn">-</div>
-            <div class="btn">0</div>
-            <div class="btn">.</div>
-            <div class="btn">+</div>
-            <div class="btn">C</div>
-            <div class="btn igual">=</div>
+          <!-- botões -->
+            <div class="btn num" data-value="7">7</div>
+            <div class="btn num" data-value="8">8</div>
+            <div class="btn num" data-value="9">9</div>
+            <div class="btn operator" data-operator="/">÷</div>
+
+            <div class="btn num" data-value="4">4</div>
+            <div class="btn num" data-value="5">5</div>
+            <div class="btn num" data-value="6">6</div>
+            <div class="btn operator" data-operator="*">x</div>
+
+            <div class="btn num" data-value="1">1</div>
+            <div class="btn num" data-value="2">2</div>
+            <div class="btn num" data-value="3">3</div>
+            <div class="btn operator" data-operator="-">-</div>
+
+            <div class="btn num" data-value="0">0</div>
+            <div class="btn operator" data-value=".">.</div>
+            <div class="btn operator" data-operator="+">+</div>
+
+            <div class="btn clear" data-action="clear">C</div>
+            <div class="btn igual" data-action="equal">=</div>
+
             <div class="display2"></div>
+
         </div>
     </div>
+    <script src="./index.js"></script>
 </body>
 </html>
